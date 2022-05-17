@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: frontend
+  labels:
+    environment: production
+    app: nginx
+  annotations:
+    github: "https://github.com/furqonm/kubernetes"
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.14.2
+    ports:
+    - containerPort: 80
