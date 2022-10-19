@@ -1,34 +1,19 @@
----
-apiVersion: "apps/v1"
-kind: "Deployment"
+apiVersion: apps/v1
+kind: Deployment
 metadata:
+  name: MyDeployment
   labels:
-    app: "webservice"
+    app: frontend
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+      app: frontend-nginx
   template:
     metadata:
       labels:
-        app: "webservice"
+        app: frontend-nginx
     spec:
       containers:
-      - name: "nginx"
-        image: "nginx:latest"
----
-apiVersion: "autoscaling/v2beta1"
-kind: "HorizontalPodAutoscaler"
-metadata:
-  labels:
-    app: "webservice-scale"
-spec:
-  scaleTargetRef:
-    kind: "Deployment"
-    name: "webservice"
-    apiVersion: "apps/v1"
-  minReplicas: 1
-  maxReplicas: 5
-  metrics:
-  - type: "Resource"
-    resource:
-      name: "cpu"
-      targetAverageUtilization: 70
+       - name: nginx
+         image: nginx:latest
