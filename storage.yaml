@@ -8,7 +8,7 @@ spec:
     imagePullPolicy: IfNotPresent
     name: myvolumes-container
     
-    command: [    'sh', '-c', 'echo The Bench Container 1 is Running ; sleep 3600']
+    command: ['sh', '-c', 'echo The Bench Container 1 is Running ; sleep 3600']
     
     volumeMounts:
     - mountPath: /demo
