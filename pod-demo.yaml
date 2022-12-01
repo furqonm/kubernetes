@@ -1,0 +1,12 @@
+apiVersion: v1 # Cara kubernetes deploy object
+kind: Pod # Object pod, service, deployment
+metadata:
+  name: pod-frontend
+  labels:
+    website: e-commerce
+    app: nginx
+spec:
+  containers:
+    - name: nginx
+      image: nginx:1.22.1
+  
